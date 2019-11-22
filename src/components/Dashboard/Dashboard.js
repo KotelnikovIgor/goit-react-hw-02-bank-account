@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import uuid from 'uuid';
+import uuid from 'uuid/v1';
 import { ToastContainer, toast } from 'react-toastify';
 import Controls from '../Controls/Controls';
 import TransactionHistory from '../TransactionHistory/TransactionHistory';
