@@ -4,7 +4,6 @@ import { ToastContainer, toast } from 'react-toastify';
 import Controls from '../Controls/Controls';
 import TransactionHistory from '../TransactionHistory/TransactionHistory';
 import Balance from '../Balance/Balance';
-import 'react-toastify/dist/ReactToastify.css';
 
 export default class Dashboard extends Component {
   state = {
@@ -35,6 +34,7 @@ export default class Dashboard extends Component {
     } else {
       toast.success('Введите сумму для проведения операции!');
     }
+    return this.setState({ amount: 0 });
   };
 
   handleWithdraw = () => {
@@ -54,7 +54,7 @@ export default class Dashboard extends Component {
   };
 
   render() {
-    const { balance, transactions } = this.state;
+    const { balance, transactions, amount } = this.state;
     const income = transactions.reduce((acc, items) => {
       return items.type === 'DEPOSIT' ? acc + items.amount : acc;
     }, 0);
@@ -65,6 +65,7 @@ export default class Dashboard extends Component {
     return (
       <div>
         <Controls
+          amount={amount}
           handleWithdraw={this.handleWithdraw}
           handleDeposit={this.handleDeposit}
           handleChange={this.handleChange}
