@@ -28,7 +28,7 @@ export default class Dashboard extends Component {
   handleDeposit = () => {
     if (this.state.amount !== 0) {
       this.setState(state => ({
-        balance: Number(state.balance) + Number(state.amount),
+        balance: +Number(state.balance + state.amount).toFixed(2),
       }));
       this.addToTransactions('DEPOSIT');
     } else {
@@ -40,12 +40,13 @@ export default class Dashboard extends Component {
   handleWithdraw = () => {
     if (this.state.balance >= this.state.amount && this.state.balance !== 0) {
       this.setState(state => ({
-        balance: state.balance - state.amount,
+        balance: +Number(state.balance - state.amount).toFixed(2),
       }));
       this.addToTransactions('WITHDRAW');
     } else {
       toast.error('На счету недостаточно средств для проведения операции!');
     }
+    return this.setState({ amount: 0 });
   };
 
   handleChange = e => {
@@ -55,12 +56,16 @@ export default class Dashboard extends Component {
 
   render() {
     const { balance, transactions, amount } = this.state;
-    const income = transactions.reduce((acc, items) => {
-      return items.type === 'DEPOSIT' ? acc + items.amount : acc;
-    }, 0);
-    const expenses = transactions.reduce((acc, items) => {
-      return items.type === 'WITHDRAW' ? acc + items.amount : acc;
-    }, 0);
+    const income = Number(
+      transactions.reduce((acc, items) => {
+        return items.type === 'DEPOSIT' ? acc + items.amount : acc;
+      }, 0),
+    ).toFixed(2);
+    const expenses = Number(
+      transactions.reduce((acc, items) => {
+        return items.type === 'WITHDRAW' ? acc + items.amount : acc;
+      }, 0),
+    ).toFixed(2);
 
     return (
       <div>

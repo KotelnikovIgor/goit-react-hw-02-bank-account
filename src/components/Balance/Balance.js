@@ -6,7 +6,9 @@ const Balance = ({ balance, income, expenses }) => (
   <section className={styles.balance}>
     <span className={styles.span__income}>&uarr;{income}$</span>
     <span className={styles.span__expenses}>&darr;{expenses}$</span>
-    <span className={styles.span__balance}>Balance: {balance}</span>
+    <span className={styles.span__balance}>
+      Balance: {Number(balance).toFixed(2)}
+    </span>
   </section>
 );
 
