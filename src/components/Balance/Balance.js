@@ -1,11 +1,14 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import styles from './Balance.module.css';
 
 const Balance = ({ balance, income, expenses }) => (
-  <section className="balance">
-    <span>&uarr;{income}$</span>
-    <span>&darr;{expenses}$</span>
-    <span>Balance: {balance}</span>
+  <section className={styles.balance}>
+    <span className={styles.span__income}>&uarr;{income}$</span>
+    <span className={styles.span__expenses}>&darr;{expenses}$</span>
+    <span className={styles.span__balance}>
+      Balance: {Number(balance).toFixed(2)}
+    </span>
   </section>
 );
 

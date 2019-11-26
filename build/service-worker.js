@@ -14,7 +14,11 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/4.3.1/workbox-sw.js");
 
 importScripts(
+<<<<<<< HEAD
   "./precache-manifest.3fb6dcb8e787bbc94a161c8904ac61c0.js"
+=======
+  "/goit-react-hw-02-bank-account/precache-manifest.5da1f01335798f3381fbb8ecd01d0b04.js"
+>>>>>>> gh-pages
 );
 
 self.addEventListener('message', (event) => {
@@ -33,7 +37,11 @@ workbox.core.clientsClaim();
 self.__precacheManifest = [].concat(self.__precacheManifest || []);
 workbox.precaching.precacheAndRoute(self.__precacheManifest, {});
 
+<<<<<<< HEAD
 workbox.routing.registerNavigationRoute(workbox.precaching.getCacheKeyForURL("./index.html"), {
+=======
+workbox.routing.registerNavigationRoute(workbox.precaching.getCacheKeyForURL("/goit-react-hw-02-bank-account/index.html"), {
+>>>>>>> gh-pages
   
   blacklist: [/^\/_/,/\/[^/?]+\.[^/]+$/],
 });

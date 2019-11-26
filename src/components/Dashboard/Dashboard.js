@@ -4,7 +4,6 @@ import { ToastContainer, toast } from 'react-toastify';
 import Controls from '../Controls/Controls';
 import TransactionHistory from '../TransactionHistory/TransactionHistory';
 import Balance from '../Balance/Balance';
-import 'react-toastify/dist/ReactToastify.css';
 
 export default class Dashboard extends Component {
   state = {
@@ -29,23 +28,25 @@ export default class Dashboard extends Component {
   handleDeposit = () => {
     if (this.state.amount !== 0) {
       this.setState(state => ({
-        balance: Number(state.balance) + Number(state.amount),
+        balance: +Number(state.balance + state.amount).toFixed(2),
       }));
       this.addToTransactions('DEPOSIT');
     } else {
       toast.success('Введите сумму для проведения операции!');
     }
+    return this.setState({ amount: 0 });
   };
 
   handleWithdraw = () => {
     if (this.state.balance >= this.state.amount && this.state.balance !== 0) {
       this.setState(state => ({
-        balance: state.balance - state.amount,
+        balance: +Number(state.balance - state.amount).toFixed(2),
       }));
       this.addToTransactions('WITHDRAW');
     } else {
       toast.error('На счету недостаточно средств для проведения операции!');
     }
+    return this.setState({ amount: 0 });
   };
 
   handleChange = e => {
@@ -54,17 +55,22 @@ export default class Dashboard extends Component {
   };
 
   render() {
-    const { balance, transactions } = this.state;
-    const income = transactions.reduce((acc, items) => {
-      return items.type === 'DEPOSIT' ? acc + items.amount : acc;
-    }, 0);
-    const expenses = transactions.reduce((acc, items) => {
-      return items.type === 'WITHDRAW' ? acc + items.amount : acc;
-    }, 0);
+    const { balance, transactions, amount } = this.state;
+    const income = Number(
+      transactions.reduce((acc, items) => {
+        return items.type === 'DEPOSIT' ? acc + items.amount : acc;
+      }, 0),
+    ).toFixed(2);
+    const expenses = Number(
+      transactions.reduce((acc, items) => {
+        return items.type === 'WITHDRAW' ? acc + items.amount : acc;
+      }, 0),
+    ).toFixed(2);
 
     return (
       <div>
         <Controls
+          amount={amount}
           handleWithdraw={this.handleWithdraw}
           handleDeposit={this.handleDeposit}
           handleChange={this.handleChange}

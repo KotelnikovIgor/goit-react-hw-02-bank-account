@@ -1,5 +1,6 @@
 {
   "files": {
+<<<<<<< HEAD
     "main.js": "./static/js/main.d7ffd35a.chunk.js",
     "main.js.map": "./static/js/main.d7ffd35a.chunk.js.map",
     "runtime-main.js": "./static/js/runtime-main.277ee49b.js",
@@ -17,5 +18,24 @@
     "static/css/2.5dbdccff.chunk.css",
     "static/js/2.c68ccbd1.chunk.js",
     "static/js/main.d7ffd35a.chunk.js"
+=======
+    "main.css": "/goit-react-hw-02-bank-account/static/css/main.93123afb.chunk.css",
+    "main.js": "/goit-react-hw-02-bank-account/static/js/main.ba175259.chunk.js",
+    "main.js.map": "/goit-react-hw-02-bank-account/static/js/main.ba175259.chunk.js.map",
+    "runtime-main.js": "/goit-react-hw-02-bank-account/static/js/runtime-main.611f8d42.js",
+    "runtime-main.js.map": "/goit-react-hw-02-bank-account/static/js/runtime-main.611f8d42.js.map",
+    "static/js/2.8492d35c.chunk.js": "/goit-react-hw-02-bank-account/static/js/2.8492d35c.chunk.js",
+    "static/js/2.8492d35c.chunk.js.map": "/goit-react-hw-02-bank-account/static/js/2.8492d35c.chunk.js.map",
+    "index.html": "/goit-react-hw-02-bank-account/index.html",
+    "precache-manifest.5da1f01335798f3381fbb8ecd01d0b04.js": "/goit-react-hw-02-bank-account/precache-manifest.5da1f01335798f3381fbb8ecd01d0b04.js",
+    "service-worker.js": "/goit-react-hw-02-bank-account/service-worker.js",
+    "static/css/main.93123afb.chunk.css.map": "/goit-react-hw-02-bank-account/static/css/main.93123afb.chunk.css.map"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.611f8d42.js",
+    "static/js/2.8492d35c.chunk.js",
+    "static/css/main.93123afb.chunk.css",
+    "static/js/main.ba175259.chunk.js"
+>>>>>>> gh-pages
   ]
 }
